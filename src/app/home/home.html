@@ -1,0 +1,19 @@
+<section class="home">
+  <h1>Angular Entrevista Prep</h1>
+  <p>
+    Índice de temas. Todos los ejemplos usan el objeto <strong>Persona</strong>.
+  </p>
+
+  <ol>
+    @for (tema of temas; track tema.id) {
+      <li>
+        <a [routerLink]="tema.ruta">
+          <span class="id">{{ tema.id }}</span>
+          {{ tema.titulo }}
+        </a>
+        <p>{{ tema.resumen }}</p>
+        <code>{{ tema.carpeta }}</code>
+      </li>
+    }
+  </ol>
+</section>

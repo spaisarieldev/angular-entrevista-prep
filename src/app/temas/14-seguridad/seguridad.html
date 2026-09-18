@@ -1,0 +1,114 @@
+<section class="tema">
+  <h1>14 — Seguridad / transversales</h1>
+  <p>
+    Conceptos que cruzan frontend y backend. En Angular suelen aparecer al autenticar
+    una <strong>Persona</strong> (login, guards, interceptors).
+  </p>
+
+  <article>
+    <h2>JWT</h2>
+    <p>
+      JSON Web Token: credencial firmada (header.payload.signature). El front suele
+      mandarla en <code>Authorization: Bearer …</code> vía interceptor HTTP.
+      El guard puede leer claims (ej. <code>rol</code> de la Persona) para rutas admin.
+    </p>
+    <ul>
+      <li>Access token: corto (minutos)</li>
+      <li>Refresh token: más largo, idealmente en cookie HttpOnly</li>
+    </ul>
+  </article>
+
+  <article>
+    <h2>CORS</h2>
+    <p>
+      Política del <strong>navegador</strong>: un origen (ej. <code>localhost:4200</code>)
+      no puede leer respuestas de otro (<code>api.midominio.com</code>) salvo que el
+      servidor lo permita con headers (<code>Access-Control-Allow-Origin</code>, etc.).
+    </p>
+    <p>
+      No es un firewall de seguridad del API: es una restricción del browser. Postman /
+      curl no aplican CORS.
+    </p>
+  </article>
+
+  <article>
+    <h2>XSS (Cross-Site Scripting)</h2>
+    <p>
+      Inyectar JS malicioso en tu página (ej. comentario con script). Si el token está
+      en <code>localStorage</code>, el script lo puede leer y robar la sesión de la Persona.
+    </p>
+    <ul>
+      <li>Angular escapa por defecto en la interpolación del template</li>
+      <li>Cuidado con <code>[innerHTML]</code> / <code>bypassSecurityTrust…</code></li>
+      <li>Nunca confíes solo en el front: sanitizá también en backend</li>
+    </ul>
+  </article>
+
+  <article>
+    <h2>CSRF (Cross-Site Request Forgery)</h2>
+    <p>
+      El browser manda cookies de sesión a tu API automáticamente en requests desde
+      otro sitio. Un atacante puede “forzar” una acción autenticada.
+    </p>
+    <ul>
+      <li>Más crítico con cookies de sesión</li>
+      <li>Mitigaciones: token CSRF, SameSite cookies, no usar cookies para todo</li>
+      <li>JWT en header <code>Authorization</code> no se manda cross-site solo</li>
+    </ul>
+  </article>
+
+  <article>
+    <h2>Cookies vs JWT — ¿dónde guardar el token?</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Lugar</th>
+          <th>Pros</th>
+          <th>Contras</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Memoria (servicio Angular)</td>
+          <td>No accesible fácil por XSS persistente</td>
+          <td>Se pierde al refrescar</td>
+        </tr>
+        <tr>
+          <td>sessionStorage</td>
+          <td>Muere al cerrar pestaña</td>
+          <td>Vulnerable a XSS</td>
+        </tr>
+        <tr>
+          <td>localStorage</td>
+          <td>Simple / persiste</td>
+          <td>Vulnerable a XSS (evitar para access token)</td>
+        </tr>
+        <tr>
+          <td>Cookie HttpOnly + Secure</td>
+          <td>JS no la lee (mejor ante XSS)</td>
+          <td>Hay que cuidar CSRF / SameSite</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      Respuesta típica de entrevista: <em>access token en memoria</em> +
+      <em>refresh en cookie HttpOnly</em>, o arquitectura BFF.
+    </p>
+  </article>
+
+  <article class="demo">
+    <h2>Demo rápida (token de Persona)</h2>
+    <p>Elegí dónde “guardar” el token demo y simulá login:</p>
+
+    <div class="opciones">
+      <button type="button" (click)="elegirStorage('memory')">Memoria</button>
+      <button type="button" (click)="elegirStorage('sessionStorage')">sessionStorage</button>
+      <button type="button" (click)="elegirStorage('localStorage')">localStorage</button>
+      <button type="button" (click)="elegirStorage('cookie-httpOnly')">Cookie HttpOnly</button>
+    </div>
+
+    <p>Storage actual: <strong>{{ storage() }}</strong></p>
+    <button type="button" class="primary" (click)="simularLogin()">Simular login</button>
+    <p>Lectura desde el browser: <code>{{ leerDesdeBrowser() }}</code></p>
+  </article>
+</section>

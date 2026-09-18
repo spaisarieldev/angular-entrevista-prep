@@ -1,0 +1,40 @@
+<section class="tema">
+  <h1>01 — Control flow</h1>
+  <p>Practicá <code>&#64;if</code>, <code>&#64;for</code>, <code>&#64;switch</code> y <code>&#64;empty</code> con objetos <strong>Persona</strong>.</p>
+
+  <label>
+    Filtro:
+    <select [value]="filtro" (change)="filtro = $any($event.target).value">
+      <option value="todas">Todas</option>
+      <option value="activas">Activas</option>
+      <option value="inactivas">Inactivas</option>
+    </select>
+  </label>
+
+  <ul>
+    @for (persona of filtradas; track persona.id) {
+      <li>
+        <strong>{{ persona.nombre }} {{ persona.apellido }}</strong>
+        —
+        @switch (persona.rol) {
+          @case ('admin') {
+            <span class="badge admin">Admin</span>
+          }
+          @case ('user') {
+            <span class="badge user">User</span>
+          }
+          @default {
+            <span class="badge guest">Guest</span>
+          }
+        }
+        @if (persona.activa) {
+          <em>activa</em>
+        } @else {
+          <em>inactiva</em>
+        }
+      </li>
+    } @empty {
+      <li>No hay personas para este filtro.</li>
+    }
+  </ul>
+</section>

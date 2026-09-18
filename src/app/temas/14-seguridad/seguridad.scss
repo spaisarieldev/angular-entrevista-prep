@@ -1,0 +1,59 @@
+.tema {
+  padding: 1rem 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+article {
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fff;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+ul {
+  margin-bottom: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th,
+td {
+  border: 1px solid #e2e8f0;
+  padding: 0.45rem 0.55rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: #f8fafc;
+}
+
+.opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+button.primary {
+  margin: 0.5rem 0;
+  padding: 0.4rem 0.8rem;
+}
+
+code {
+  word-break: break-all;
+}

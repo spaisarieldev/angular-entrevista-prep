@@ -1,0 +1,21 @@
+<section class="tema">
+  <h1>05 — Signals</h1>
+  <p>Estado de personas con <code>signal()</code>, <code>set()</code> y <code>update()</code>.</p>
+
+  <ul>
+    @for (persona of personas(); track persona.id) {
+      <li>
+        <button type="button" (click)="seleccionar(persona.id)">
+          {{ persona.nombre }} {{ persona.apellido }}
+        </button>
+        —
+        <span [class.inactiva]="!persona.activa">
+          {{ persona.activa ? 'activa' : 'inactiva' }}
+        </span>
+        <button type="button" (click)="toggleActiva(persona.id)">toggle</button>
+      </li>
+    }
+  </ul>
+
+  <p>Selección id: <strong>{{ seleccionId() ?? 'ninguna' }}</strong></p>
+</section>

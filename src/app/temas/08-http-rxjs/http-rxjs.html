@@ -1,0 +1,17 @@
+<section class="tema">
+  <h1>08 — HttpClient + RxJS</h1>
+  <p>
+    Mock de API con <code>Observable</code>. Filtramos personas activas con
+    <code>map</code> + <code>async</code> pipe.
+  </p>
+
+  @if (activas$ | async; as personas) {
+    <ul>
+      @for (persona of personas; track persona.id) {
+        <li>{{ persona.nombre }} {{ persona.apellido }} — {{ persona.email }}</li>
+      }
+    </ul>
+  } @else {
+    <p>Cargando personas…</p>
+  }
+</section>
