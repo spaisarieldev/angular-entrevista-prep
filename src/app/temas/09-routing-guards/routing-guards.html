@@ -1,0 +1,13 @@
+<section class="tema">
+  <h1>09 — Routing / guards</h1>
+  <p>
+    Persona de referencia: <strong>{{ persona.nombre }}</strong> (rol:
+    {{ persona.rol }}).
+  </p>
+  <p>
+    Esta página se carga con <strong>lazy loading</strong>. El link de abajo usa un
+    <code>CanActivateFn</code> que valida el rol admin.
+  </p>
+
+  <a routerLink="/routing-guards/admin">Ir a zona admin (guard)</a>
+</section>

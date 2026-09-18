@@ -1,0 +1,26 @@
+<section class="tema">
+  <h1>06 — computed / effect</h1>
+  <p>
+    <code>computed</code> deriva la lista filtrada de <strong>Persona</strong>.
+    <code>effect</code> registra cambios en un log.
+  </p>
+
+  <button type="button" (click)="toggleFiltro()">
+    Filtro: {{ soloActivas() ? 'solo activas' : 'todas' }}
+  </button>
+
+  <p>Cantidad visible: <strong>{{ cantidad() }}</strong></p>
+
+  <ul>
+    @for (persona of visibles(); track persona.id) {
+      <li>{{ persona.nombre }} {{ persona.apellido }}</li>
+    }
+  </ul>
+
+  <h2>Log del effect</h2>
+  <ol>
+    @for (entry of log(); track $index) {
+      <li>{{ entry }}</li>
+    }
+  </ol>
+</section>

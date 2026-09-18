@@ -1,0 +1,42 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  font-family:
+    'Segoe UI',
+    system-ui,
+    sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+.layout {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.brand {
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+}
+
+nav a {
+  color: #475569;
+  text-decoration: none;
+}
+
+nav a.active,
+nav a:hover {
+  color: #1d4ed8;
+}

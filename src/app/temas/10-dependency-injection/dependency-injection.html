@@ -1,0 +1,17 @@
+<section class="tema">
+  <h1>10 — Dependency Injection</h1>
+  <p>
+    <code>PersonaService</code> inyectado con <code>inject()</code>
+    (<code>providedIn: 'root'</code>).
+  </p>
+
+  @if (ana; as p) {
+    <p>Buscada por id: {{ p.nombre }} {{ p.apellido }}</p>
+  }
+
+  <ul>
+    @for (persona of personas; track persona.id) {
+      <li>{{ persona.nombre }} — {{ persona.rol }}</li>
+    }
+  </ul>
+</section>

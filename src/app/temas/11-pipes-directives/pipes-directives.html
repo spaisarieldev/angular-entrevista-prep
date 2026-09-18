@@ -1,0 +1,15 @@
+<section class="tema">
+  <h1>11 — Pipes & directives</h1>
+  <p>
+    Pipe <code>nombreCompleto</code> y directiva <code>appResaltarActiva</code> sobre
+    <strong>Persona</strong>.
+  </p>
+
+  <ul>
+    @for (persona of personas; track persona.id) {
+      <li [appResaltarActiva]="persona.activa">
+        {{ persona | nombreCompleto }}
+      </li>
+    }
+  </ul>
+</section>

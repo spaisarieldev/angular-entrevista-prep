@@ -1,0 +1,20 @@
+<section class="tema">
+  <h1>02 — &#64;defer</h1>
+  <p>
+    El bloque de abajo carga el detalle de una <strong>Persona</strong> solo cuando
+    el usuario hace click (trigger <code>on interaction</code>).
+  </p>
+
+  @defer (on interaction) {
+    <article class="detalle">
+      <h3>Detalle diferido</h3>
+      <p>{{ persona.nombre }} {{ persona.apellido }} ({{ persona.edad }})</p>
+      <p>{{ persona.email }}</p>
+      <p>Rol: {{ persona.rol }}</p>
+    </article>
+  } @placeholder {
+    <button type="button">Cargar detalle de Persona</button>
+  } @loading (minimum 400ms) {
+    <p>Cargando detalle…</p>
+  }
+</section>

@@ -1,0 +1,42 @@
+.home {
+  padding: 0.5rem 0 2rem;
+}
+
+ol {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+li {
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.85rem;
+}
+
+a {
+  color: #0f172a;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1d4ed8;
+}
+
+.id {
+  display: inline-block;
+  min-width: 1.75rem;
+  color: #64748b;
+  font-variant-numeric: tabular-nums;
+}
+
+p {
+  margin: 0.35rem 0;
+  color: #475569;
+}
+
+code {
+  font-size: 0.85rem;
+  color: #334155;
+}

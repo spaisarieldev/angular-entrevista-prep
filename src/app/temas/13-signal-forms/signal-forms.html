@@ -1,0 +1,82 @@
+<section class="tema">
+  <h1>13 — Signal Forms</h1>
+  <p>
+    Alta de <strong>Persona</strong> con la API nueva de
+    <code>&#64;angular/forms/signals</code>: modelo en <code>signal</code> +
+    <code>form()</code> + <code>[formField]</code>.
+  </p>
+
+  <form (submit)="guardar($event)">
+    <label>
+      Nombre
+      <input type="text" [formField]="personaForm.nombre" />
+      @if (personaForm.nombre().touched() && personaForm.nombre().invalid()) {
+        <ul class="errores">
+          @for (error of personaForm.nombre().errors(); track error) {
+            <li>{{ error.message }}</li>
+          }
+        </ul>
+      }
+    </label>
+
+    <label>
+      Apellido
+      <input type="text" [formField]="personaForm.apellido" />
+      @if (personaForm.apellido().touched() && personaForm.apellido().invalid()) {
+        <ul class="errores">
+          @for (error of personaForm.apellido().errors(); track error) {
+            <li>{{ error.message }}</li>
+          }
+        </ul>
+      }
+    </label>
+
+    <label>
+      Edad
+      <input type="number" [formField]="personaForm.edad" />
+      @if (personaForm.edad().touched() && personaForm.edad().invalid()) {
+        <ul class="errores">
+          @for (error of personaForm.edad().errors(); track error) {
+            <li>{{ error.message }}</li>
+          }
+        </ul>
+      }
+    </label>
+
+    <label>
+      Email
+      <input type="email" [formField]="personaForm.email" />
+      @if (personaForm.email().touched() && personaForm.email().invalid()) {
+        <ul class="errores">
+          @for (error of personaForm.email().errors(); track error) {
+            <li>{{ error.message }}</li>
+          }
+        </ul>
+      }
+    </label>
+
+    <label>
+      Rol
+      <select [formField]="personaForm.rol">
+        <option value="admin">admin</option>
+        <option value="user">user</option>
+        <option value="guest">guest</option>
+      </select>
+    </label>
+
+    <label class="check">
+      <input type="checkbox" [formField]="personaForm.activa" />
+      Activa
+    </label>
+
+    <button type="submit" [disabled]="personaForm().invalid()">Guardar Persona</button>
+  </form>
+
+  <h2>Modelo en vivo</h2>
+  <pre>{{ personaModel() | json }}</pre>
+
+  @if (creada; as p) {
+    <h2>Última creada</h2>
+    <pre>{{ p | json }}</pre>
+  }
+</section>

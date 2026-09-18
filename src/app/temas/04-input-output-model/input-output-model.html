@@ -1,0 +1,17 @@
+<section class="tema">
+  <h1>04 — input / output / model</h1>
+  <p>Comunicación padre ↔ hijo con APIs signal-based sobre una <strong>Persona</strong>.</p>
+
+  <app-persona-card
+    [persona]="persona"
+    [edad]="persona.edad"
+    [(nombre)]="persona.nombre"
+    (seleccionada)="onSeleccionada($event)"
+  />
+
+  <p>Nombre actual en el padre: <strong>{{ persona.nombre }}</strong></p>
+
+  @if (seleccion; as p) {
+    <p>Última seleccionada: {{ p.nombre }} {{ p.apellido }}</p>
+  }
+</section>

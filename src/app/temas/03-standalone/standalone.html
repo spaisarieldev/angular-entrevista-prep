@@ -1,0 +1,13 @@
+<section class="tema">
+  <h1>03 — Standalone</h1>
+  <p>
+    Este componente es <strong>standalone</strong>: no necesita NgModule.
+    Importa <code>DatePipe</code> en su propio <code>imports: []</code>.
+  </p>
+
+  <article>
+    <h2>{{ persona.nombre }} {{ persona.apellido }}</h2>
+    <p>{{ persona.email }}</p>
+    <p>Renderizado: {{ ahora | date: 'short' }}</p>
+  </article>
+</section>

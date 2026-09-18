@@ -1,59 +1,69 @@
-# AngularEntrevistaPrep
+# Angular Entrevista Prep
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+Práctica de Angular **22** para entrevista. Todos los ejemplos giran alrededor del objeto **`Persona`**.
 
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
+```ts
+interface Persona {
+  id: number;
+  nombre: string;
+  apellido: string;
+  edad: number;
+  email: string;
+  activa: boolean;
+  rol: 'admin' | 'user' | 'guest';
+}
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Modelo compartido: `src/app/shared/models/persona.ts`
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Cómo correrlo
 
 ```bash
-ng generate component component-name
+npm start
+# o: ng serve
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Abrí `http://localhost:4200/` — el home lista los temas y cada uno tiene su ruta.
 
-```bash
-ng generate --help
-```
+## Índice de temas
 
-## Building
+| # | Carpeta | Tema | Qué practicar con `Persona` |
+|---|---------|------|-----------------------------|
+| 01 | [`src/app/temas/01-control-flow`](src/app/temas/01-control-flow) | Control flow | `@if` / `@for` / `@switch` / `@empty` sobre listas de personas |
+| 02 | [`src/app/temas/02-defer`](src/app/temas/02-defer) | `@defer` | Cargar detalle de persona de forma diferida |
+| 03 | [`src/app/temas/03-standalone`](src/app/temas/03-standalone) | Standalone | Componentes sin NgModule; imports explícitos |
+| 04 | [`src/app/temas/04-input-output-model`](src/app/temas/04-input-output-model) | `input` / `output` / `model` | Pasar y editar una `Persona` entre padre e hijo |
+| 05 | [`src/app/temas/05-signals`](src/app/temas/05-signals) | Signals | Estado reactivo de personas con `signal()` |
+| 06 | [`src/app/temas/06-computed-effect`](src/app/temas/06-computed-effect) | `computed` / `effect` | Filtrar activas, reaccionar a cambios |
+| 07 | [`src/app/temas/07-forms`](src/app/temas/07-forms) | Forms | Alta/edición de `Persona` (Reactive Forms) |
+| 08 | [`src/app/temas/08-http-rxjs`](src/app/temas/08-http-rxjs) | HttpClient + RxJS | Obtener personas, `map` / `filter` / `switchMap` |
+| 09 | [`src/app/temas/09-routing-guards`](src/app/temas/09-routing-guards) | Routing / guards | Rutas, lazy load y guard por rol de persona |
+| 10 | [`src/app/temas/10-dependency-injection`](src/app/temas/10-dependency-injection) | DI / providers | `PersonaService` inyectable |
+| 11 | [`src/app/temas/11-pipes-directives`](src/app/temas/11-pipes-directives) | Pipes & directives | Formatear nombre; resaltar personas activas |
+| 12 | [`src/app/temas/12-change-detection`](src/app/temas/12-change-detection) | Change detection | OnPush + signals con lista de personas |
+| 13 | [`src/app/temas/13-signal-forms`](src/app/temas/13-signal-forms) | Signal Forms | Alta de `Persona` con `form()` + `[formField]` |
+| 14 | [`src/app/temas/14-seguridad`](src/app/temas/14-seguridad) | Seguridad / transversales | JWT, CORS, XSS, CSRF, cookies vs dónde guardar el token |
 
-To build the project run:
+## Rutas en la app
 
-```bash
-ng build
-```
+| Ruta | Tema |
+|------|------|
+| `/` | Índice |
+| `/control-flow` | 01 |
+| `/defer` | 02 |
+| `/standalone` | 03 |
+| `/input-output-model` | 04 |
+| `/signals` | 05 |
+| `/computed-effect` | 06 |
+| `/forms` | 07 |
+| `/http-rxjs` | 08 |
+| `/routing-guards` | 09 |
+| `/dependency-injection` | 10 |
+| `/pipes-directives` | 11 |
+| `/change-detection` | 12 |
+| `/signal-forms` | 13 |
+| `/seguridad` | 14 |
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Repo
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+https://github.com/spaisarieldev/angular-entrevista-prep

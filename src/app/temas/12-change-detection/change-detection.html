@@ -1,0 +1,15 @@
+<section class="tema">
+  <h1>12 — Change detection</h1>
+  <p>
+    Componente con <code>ChangeDetectionStrategy.OnPush</code> + lista de
+    <strong>Persona</strong> en un <code>signal</code>.
+  </p>
+
+  <button type="button" (click)="agregarInvitada()">Agregar persona</button>
+
+  <ul>
+    @for (persona of personas(); track persona.id) {
+      <li>{{ persona.nombre }} {{ persona.apellido }}</li>
+    }
+  </ul>
+</section>
